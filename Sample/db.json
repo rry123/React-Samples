@@ -1,0 +1,116 @@
+{
+  "users": [
+    {
+      "name": "Dusty Kuvalis",
+      "email": "Randy63@yahoo.com",
+      "Salary": "$52,789",
+      "job_title": "Chief Creative Technician",
+      "start_date": "3/20/2014"
+    },
+    {
+      "name": "Leslie Koss",
+      "email": "LeslieKoss@gmail.com",
+      "Salary": "$67,543",
+      "job_title": "Senior Marketing Manager",
+      "start_date": "5/11/2016"
+    },
+    {
+      "name": "Maverick Parker",
+      "email": "Maverick.Parker@outlook.com",
+      "Salary": "$72,125",
+      "job_title": "Product Designer",
+      "start_date": "9/15/2017"
+    },
+    {
+      "name": "Harper Green",
+      "email": "Harper.Green@yahoo.com",
+      "Salary": "$58,980",
+      "job_title": "Lead Software Engineer",
+      "start_date": "1/22/2019"
+    },
+    {
+      "name": "Jordan White",
+      "email": "Jordan.White@gmail.com",
+      "Salary": "$81,320",
+      "job_title": "Project Manager",
+      "start_date": "7/30/2015"
+    },
+    {
+      "name": "Taylor Black",
+      "email": "Taylor.Black@outlook.com",
+      "Salary": "$65,210",
+      "job_title": "UI/UX Designer",
+      "start_date": "12/10/2018"
+    },
+    {
+      "name": "Robin Brown",
+      "email": "Robin.Brown@yahoo.com",
+      "Salary": "$54,750",
+      "job_title": "Data Analyst",
+      "start_date": "2/14/2017"
+    },
+    {
+      "name": "Bailey Johnson",
+      "email": "Bailey.Johnson@gmail.com",
+      "Salary": "$78,495",
+      "job_title": "Operations Manager",
+      "start_date": "4/9/2013"
+    },
+    {
+      "name": "Casey Davis",
+      "email": "Casey.Davis@outlook.com",
+      "Salary": "$61,345",
+      "job_title": "Financial Analyst",
+      "start_date": "11/23/2014"
+    },
+    {
+      "name": "Morgan Lee",
+      "email": "Morgan.Lee@yahoo.com",
+      "Salary": "$66,890",
+      "job_title": "Marketing Coordinator",
+      "start_date": "8/2/2020"
+    },
+    {
+      "name": "Riley Miller",
+      "email": "Riley.Miller@gmail.com",
+      "Salary": "$55,600",
+      "job_title": "Business Consultant",
+      "start_date": "10/13/2016"
+    },
+    {
+      "name": "Avery Wilson",
+      "email": "Avery.Wilson@outlook.com",
+      "Salary": "$73,450",
+      "job_title": "Customer Success Manager",
+      "start_date": "6/27/2015"
+    },
+    {
+      "name": "Quinn Taylor",
+      "email": "Quinn.Taylor@yahoo.com",
+      "Salary": "$59,300",
+      "job_title": "Technical Support Specialist",
+      "start_date": "3/3/2012"
+    },
+    {
+      "name": "Sawyer Martinez",
+      "email": "Sawyer.Martinez@gmail.com",
+      "Salary": "$62,470",
+      "job_title": "HR Manager",
+      "start_date": "5/20/2014"
+    },
+    {
+      "name": "Dakota Moore",
+      "email": "Dakota.Moore@outlook.com",
+      "Salary": "$70,750",
+      "job_title": "Account Executive",
+      "start_date": "1/1/2016"
+    },
+    {
+      "name": "Emerson Thompson",
+      "email": "Emerson.Thompson@yahoo.com",
+      "Salary": "$76,530",
+      "job_title": "Legal Advisor",
+      "start_date": "9/17/2018"
+    }
+  ]  
+}
