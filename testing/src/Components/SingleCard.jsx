@@ -21,6 +21,7 @@ const SingleCard = ({ id, apiUrl }) => {
   const [newApiUrl, setNewApiUrl] = useState(apiUrl);
   const [editingUrl, setEditingUrl] = useState(false);
   const [expanded, setExpanded] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false); // State for the Info dialog
 
   useEffect(() => {
     const fetchData = async () => {
@@ -52,14 +53,26 @@ const SingleCard = ({ id, apiUrl }) => {
     setExpanded(true);
   };
 
-  const handleClose = () => {
+  const handleExpandClose = () => {
     setExpanded(false);
   };
 
+  const handleInfoClick = () => {
+    setInfoOpen(true);
+  };
+
+  const handleInfoClose = () => {
+    setInfoOpen(false);
+  };
+
+  // Get number of data items and field names
+  const numberOfItems = data.length;
+  const fieldNames = data.length > 0 ? Object.keys(data[0]) : [];
+
   return (
     <>
-      <Card sx={{ minWidth: 275, maxHeight: 400 , overflowY: 'auto' }}>
-        <CardContent sx={{ paddingBottom: 1 }}>
+      <Card sx={{ display: 'flex', flexDirection: 'column', minWidth: 275, maxHeight: 400 }}>
+        <CardContent>
           {editingUrl ? (
             <TextField
               label="API URL"
@@ -67,6 +80,14 @@ const SingleCard = ({ id, apiUrl }) => {
               value={newApiUrl}
               onChange={handleUrlChange}
               fullWidth
+              sx={{
+                '& .MuiInputBase-root': {
+                  height: '30px', // Adjust this value to reduce the input height
+                },
+                '& .MuiInputLabel-root': {
+                  top: '-1px', // Adjust this value to move the label closer to the input
+                }
+              }}
             />
           ) : (
             <>
@@ -79,29 +100,51 @@ const SingleCard = ({ id, apiUrl }) => {
             </>
           )}
         </CardContent>
-        <CardContent>
+        <CardContent sx={{ flex: 1 }}>
           <SingleTable data={data} loading={loading} expanded={expanded}></SingleTable>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ justifyContent: 'flex-end' }}>
           <Button size="small" onClick={handleExpandClick}>
             Expand
           </Button>
+          <Button size="small" onClick={handleInfoClick}>
+            Info
+          </Button>
         </CardActions>
       </Card>
-      <Dialog open={expanded} onClose={handleClose} maxWidth="xl" fullWidth={true} maxHeight="lg">
+      <Dialog open={expanded} onClose={handleExpandClose} maxWidth="xl" fullWidth={true}>
         <DialogTitle>
           Table Data
-          <IconButton aria-label="close" onClick={handleClose} sx={{ position: "absolute", right: 8, top: 8 }}>
+          <IconButton aria-label="close" onClick={handleExpandClose} sx={{ position: "absolute", right: 8, top: 8 }}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent sx={{ height: '100%', padding: 0 }}>
+          <Box sx={{ height: '100%', overflow: 'auto' }}>
+            <SingleTable data={data} loading={loading} expanded={expanded}></SingleTable>
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleExpandClose}>Close</Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={infoOpen} onClose={handleInfoClose} maxWidth="md" fullWidth={true}>
+        <DialogTitle>
+          API and Data Info
+          <IconButton aria-label="close" onClick={handleInfoClose} sx={{ position: "absolute", right: 8, top: 8 }}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Box>
-            <SingleTable data={data} loading={loading} expanded={true}></SingleTable>
-          </Box>
+          <Typography variant="h6">API URL</Typography>
+          <Typography variant="body1" sx={{ marginBottom: 2 }}>{newApiUrl}</Typography>
+          <Typography variant="h6">Number of Data Items</Typography>
+          <Typography variant="body1" sx={{ marginBottom: 2 }}>{numberOfItems}</Typography>
+          <Typography variant="h6">Field Names</Typography>
+          <Typography variant="body1" sx={{ marginBottom: 2 }}>{fieldNames.join(", ")}</Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+          <Button onClick={handleInfoClose}>Close</Button>
         </DialogActions>
       </Dialog>
     </>

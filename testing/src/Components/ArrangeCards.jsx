@@ -49,7 +49,7 @@ function ArrangeCards() {
 
   return (
     <Box sx={{ padding: 2 }}>
-      <Box sx={{ display: "flex", gap: 2, marginBottom: 2 }}>
+      <Box sx={{ display: "flex", gap: 2, marginBottom: 2}}>
         <TextField
           label="API URL"
           variant="outlined"

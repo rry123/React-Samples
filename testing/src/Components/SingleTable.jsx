@@ -4,7 +4,7 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-const SingleTable = ({ data, loading }) => {
+const SingleTable = ({ data, loading, expanded }) => {
   //should be memoized or stable
   const columns = useMemo(() => {
     if (!data || data.length === 0) return [];
@@ -22,9 +22,14 @@ const SingleTable = ({ data, loading }) => {
   });
 
   return (
-    <div style={{  overflowY: 'auto' }}>
+    <>
+    {!expanded && <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
       <MaterialReactTable table={table} />
-    </div>
+    </div> }
+    {expanded && <div>
+      <MaterialReactTable table={table} />
+    </div>}
+    </>
   );
 };
 
