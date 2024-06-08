@@ -1,0 +1,85 @@
+{
+    "cars": [
+      {
+        "id": 1,
+        "make": "Toyota",
+        "model": "Camry",
+        "year": "2020",
+        "color": "Red",
+        "status": "new"
+      },
+      {
+        "id": 2,
+        "make": "Honda",
+        "model": "Civic",
+        "year": "2019",
+        "color": "Blue",
+        "status": "used"
+      },
+      {
+        "id": 3,
+        "make": "Ford",
+        "model": "Mustang",
+        "year": "2021",
+        "color": "Black",
+        "status": "new"
+      },
+      {
+        "id": 4,
+        "make": "Chevrolet",
+        "model": "Impala",
+        "year": "2018",
+        "color": "White",
+        "status": "used"
+      },
+      {
+        "id": 5,
+        "make": "Nissan",
+        "model": "Altima",
+        "year": "2022",
+        "color": "Gray",
+        "status": "new"
+      },
+      {
+        "id": 6,
+        "make": "BMW",
+        "model": "X5",
+        "year": "2017",
+        "color": "Silver",
+        "status": "used"
+      },
+      {
+        "id": 7,
+        "make": "Audi",
+        "model": "A4",
+        "year": "2021",
+        "color": "Green",
+        "status": "new"
+      },
+      {
+        "id": 8,
+        "make": "Mercedes",
+        "model": "C-Class",
+        "year": "2020",
+        "color": "Yellow",
+        "status": "used"
+      },
+      {
+        "id": 9,
+        "make": "Volkswagen",
+        "model": "Golf",
+        "year": "2019",
+        "color": "Purple",
+        "status": "new"
+      },
+      {
+        "id": 10,
+        "make": "Kia",
+        "model": "Sorento",
+        "year": "2018",
+        "color": "Orange",
+        "status": "used"
+      }
+    ]
+  }
+  

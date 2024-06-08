@@ -1,0 +1,75 @@
+{
+    "todos": [
+      {
+        "id": 1,
+        "title": "Buy groceries",
+        "description": "Milk, Bread, Cheese, Fruits",
+        "status": "pending",
+        "due_date": "2024-06-10"
+      },
+      {
+        "id": 2,
+        "title": "Finish project report",
+        "description": "Complete the final report for the project",
+        "status": "in-progress",
+        "due_date": "2024-06-15"
+      },
+      {
+        "id": 3,
+        "title": "Call the plumber",
+        "description": "Fix the kitchen sink leak",
+        "status": "pending",
+        "due_date": "2024-06-12"
+      },
+      {
+        "id": 4,
+        "title": "Schedule doctor appointment",
+        "description": "Annual health check-up",
+        "status": "completed",
+        "due_date": "2024-06-08"
+      },
+      {
+        "id": 5,
+        "title": "Plan birthday party",
+        "description": "Arrange venue and send invitations",
+        "status": "pending",
+        "due_date": "2024-06-20"
+      },
+      {
+        "id": 6,
+        "title": "Clean the garage",
+        "description": "Organize and clean the garage",
+        "status": "pending",
+        "due_date": "2024-06-18"
+      },
+      {
+        "id": 7,
+        "title": "Prepare presentation",
+        "description": "Prepare slides for the meeting",
+        "status": "in-progress",
+        "due_date": "2024-06-14"
+      },
+      {
+        "id": 8,
+        "title": "Visit the bank",
+        "description": "Open a new savings account",
+        "status": "pending",
+        "due_date": "2024-06-16"
+      },
+      {
+        "id": 9,
+        "title": "Exercise",
+        "description": "Go for a 30-minute run",
+        "status": "completed",
+        "due_date": "2024-06-09"
+      },
+      {
+        "id": 10,
+        "title": "Read a book",
+        "description": "Finish reading 'The Great Gatsby'",
+        "status": "in-progress",
+        "due_date": "2024-06-22"
+      }
+    ]
+  }
+  

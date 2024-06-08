@@ -17,30 +17,20 @@ const Item = styled(Paper)(({ theme }) => ({
 const FullWidthItem = styled(Box)(({ theme }) => ({
   width: "100%",
   padding: 0,
-  margin: 0,
+  marginBottom: 30,
 }));
 
 export default function Navcard() {
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%"}}>
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={0} >
         <Box gridColumn="span 12">
           <FullWidthItem>
             <Navbar />
           </FullWidthItem>
         </Box>
-        <Box gridColumn="span 12">
-            <Box sx = {{display : "flex" , justifyContent : "space-around", padding : 2}}>
-            <Item><Topcard></Topcard></Item>
-            <Item><Topcard></Topcard></Item>
-            <Item><Topcard></Topcard></Item>
-            <Item><Topcard></Topcard></Item>
-            </Box>
-        </Box>
-        <Box gridColumn="span 12">
-          <Item>
+        <Box gridColumn="span 12" className = "MainContentBox">
             <Cardarrange />
-          </Item>
         </Box>
       </Box>
     </Box>

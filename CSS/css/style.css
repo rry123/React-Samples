@@ -1,0 +1,17 @@
+div{
+    display: flex;
+    justify-content:space-evenly;
+}
+p{
+    background-color: lightgreen;
+    font-size: 2rem;
+    width: 25%;
+}
+
+ol{
+    font-size: 2rem;
+}
+
+ul{
+    font-size: 2rem;
+}

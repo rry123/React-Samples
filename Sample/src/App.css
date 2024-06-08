@@ -1,7 +1,12 @@
-.layout{
-    width : 100%;
-    height : 100vh;
-    display : grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 2fr 5fr;
+.MainContentBox{
+    background-color: yellow;
+    padding: auto;
+}
+
+
+.MainGrid{
+    
+    background-color: black;
+    display: flex;
+    
 }

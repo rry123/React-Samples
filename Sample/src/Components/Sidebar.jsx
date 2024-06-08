@@ -103,10 +103,14 @@ export default function MiniDrawer() {
 
   return (
     <Box sx={{ display: "flex" }}>
+      
+        
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
+
         {!open && (
         <DrawerHeader>
+          
           <IconButton 
             color="inherit"
             aria-label="open drawer"
@@ -121,6 +125,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon
             />
+            
           </IconButton>
         </DrawerHeader> ) }
         {open && (
@@ -187,7 +192,6 @@ export default function MiniDrawer() {
       <Box sx = {{flexGrow : 1}}>
         <Navcard></Navcard>
       </Box>
-
     </Box>
   );
 }

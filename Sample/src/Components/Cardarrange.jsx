@@ -15,21 +15,19 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Cardarrange() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className='MainGrid'>
         <Grid item xs={6}>
-          <Item><Mycard></Mycard></Item>
+         <Mycard className="InnerGrid"></Mycard>
         </Grid>
         <Grid item xs={6}>
-          <Item><Mycard></Mycard></Item>
+         <Mycard className="InnerGrid"></Mycard>
         </Grid>
         <Grid item xs={6}>
-          <Item><Mycard></Mycard></Item>
+         <Mycard className="InnerGrid"></Mycard>
         </Grid>
         <Grid item xs={6}>
-          <Item><Mycard></Mycard></Item>
+          <Mycard className="InnerGrid"></Mycard>
         </Grid>
       </Grid>
-    </Box>
   );
 }

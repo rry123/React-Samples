@@ -11,7 +11,7 @@ export default function Mycard() {
     <Card
       sx={{
         maxWidth: 700,
-        height: 240,
+        height: 300,
         transition: 'transform 0.3s ease-in-out',
         '&:hover': {
           transform: 'scale(1.05)',
@@ -19,7 +19,7 @@ export default function Mycard() {
       }}
     >
       <CardActionArea>
-        <CardContent sx={{ maxHeight: 200, overflow: 'auto' }}>
+        <CardContent sx={{ maxHeight: 260, overflow: 'auto' }}>
           <Apnaapi />
         </CardContent>
       </CardActionArea>
