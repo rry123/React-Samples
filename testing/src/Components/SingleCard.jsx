@@ -14,6 +14,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 const SingleCard = ({ id, apiUrl }) => {
   const [data, setData] = useState([]);
@@ -22,6 +24,8 @@ const SingleCard = ({ id, apiUrl }) => {
   const [editingUrl, setEditingUrl] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false); // State for the Info dialog
+  const [columnsOpen, setColumnsOpen] = useState(false); // State for the Columns dialog
+  const [selectedColumns, setSelectedColumns] = useState([]); // State for the selected columns
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,6 +69,26 @@ const SingleCard = ({ id, apiUrl }) => {
     setInfoOpen(false);
   };
 
+  const handleColumnsClick = () => {
+    setColumnsOpen(true);
+  };
+
+  const handleColumnsClose = () => {
+    setColumnsOpen(false);
+  };
+
+  const handleColumnChange = (column) => {
+    setSelectedColumns((prevSelectedColumns) => {
+      if (prevSelectedColumns.includes(column)) {
+        return prevSelectedColumns.filter((col) => col !== column);
+      } else if (prevSelectedColumns.length < 3) {
+        return [...prevSelectedColumns, column];
+      } else {
+        return prevSelectedColumns;
+      }
+    });
+  };
+
   // Get number of data items and field names
   const numberOfItems = data.length;
   const fieldNames = data.length > 0 ? Object.keys(data[0]) : [];
@@ -101,7 +125,7 @@ const SingleCard = ({ id, apiUrl }) => {
           )}
         </CardContent>
         <CardContent sx={{ flex: 1 }}>
-          <SingleTable data={data} loading={loading} expanded={expanded}></SingleTable>
+          <SingleTable data={data} loading={loading} expanded={expanded} selectedColumns={selectedColumns}></SingleTable>
         </CardContent>
         <CardActions sx={{ justifyContent: 'flex-end' }}>
           <Button size="small" onClick={handleExpandClick}>
@@ -109,6 +133,9 @@ const SingleCard = ({ id, apiUrl }) => {
           </Button>
           <Button size="small" onClick={handleInfoClick}>
             Info
+          </Button>
+          <Button size="small" onClick={handleColumnsClick}>
+            Columns
           </Button>
         </CardActions>
       </Card>
@@ -121,7 +148,7 @@ const SingleCard = ({ id, apiUrl }) => {
         </DialogTitle>
         <DialogContent sx={{ height: '100%', padding: 0 }}>
           <Box sx={{ height: '100%', overflow: 'auto' }}>
-            <SingleTable data={data} loading={loading} expanded={expanded}></SingleTable>
+            <SingleTable data={data} loading={loading} expanded={expanded} selectedColumns={selectedColumns}></SingleTable>
           </Box>
         </DialogContent>
         <DialogActions>
@@ -147,8 +174,36 @@ const SingleCard = ({ id, apiUrl }) => {
           <Button onClick={handleInfoClose}>Close</Button>
         </DialogActions>
       </Dialog>
+      <Dialog open={columnsOpen} onClose={handleColumnsClose} maxWidth="sm" fullWidth={true}>
+        <DialogTitle>
+          Select Columns
+          <IconButton aria-label="close" onClick={handleColumnsClose} sx={{ position: "absolute", right: 8, top: 8 }}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          {fieldNames.map((field) => (
+            <FormControlLabel
+              key={field}
+              control={
+                <Checkbox
+                  checked={selectedColumns.includes(field)}
+                  onChange={() => handleColumnChange(field)}
+                  disabled={
+                    selectedColumns.length >= 3 && !selectedColumns.includes(field)
+                  }
+                />
+              }
+              label={field}
+            />
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleColumnsClose}>Close</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 };
 
-export default SingleCard;
+export default SingleCard

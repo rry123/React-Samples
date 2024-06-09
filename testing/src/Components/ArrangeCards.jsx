@@ -21,16 +21,24 @@ function ArrangeCards() {
     const fetchAllData = async () => {
       setLoading(true);
       const newData = {};
+      const delays = [1000, 2000, 3000]; // Delays for each API call in milliseconds
+
       await Promise.all(
-        cards.map(async (card) => {
-          try {
-            const response = await axios.get(card.apiUrl);
-            newData[card.id] = response.data;
-          } catch (error) {
-            console.log(`Error fetching data for card ${card.id}: `, error.message);
-          }
-        })
+        cards.map((card, index) => 
+          new Promise((resolve) => 
+            setTimeout(async () => {
+              try {
+                const response = await axios.get(card.apiUrl);
+                newData[card.id] = response.data;
+              } catch (error) {
+                console.log(`Error fetching data for card ${card.id}: `, error.message);
+              }
+              resolve();
+            }, delays[index] || 0)
+          )
+        )
       );
+      
       setData(newData);
       setLoading(false);
     };
@@ -49,15 +57,20 @@ function ArrangeCards() {
 
   return (
     <Box sx={{ padding: 2 }}>
-      <Box sx={{ display: "flex", gap: 2, marginBottom: 2}}>
+      <Box sx={{ display: "flex", gap: 2, marginBottom: 2, alignItems: "center" }}>
         <TextField
           label="API URL"
           variant="outlined"
           value={newApiUrl}
           onChange={(e) => setNewApiUrl(e.target.value)}
-          sx={{ flex: 1 }}
+          sx={{ 
+            flex: 1, 
+            height: "40px", 
+            "& .MuiInputBase-root": { height: "100%" }, 
+            "& .MuiInputLabel-root": { height: "15px", display: "flex", alignItems: "center" } 
+          }}
         />
-        <Button variant="contained" onClick={handleAddCard}>
+        <Button variant="contained" onClick={handleAddCard} sx={{ height: "40px" }}>
           Add Card
         </Button>
       </Box>
@@ -69,7 +82,7 @@ function ArrangeCards() {
         }}
       >
         {cards.map((card) => (
-          <SingleCard key={card.id} data={data[card.id] || []} loading={loading} apiUrl = {card.apiUrl} />
+          <SingleCard key={card.id} data={data[card.id] || []} loading={loading} apiUrl={card.apiUrl} />
         ))}
       </Box>
     </Box>
