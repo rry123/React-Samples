@@ -127,7 +127,7 @@ const SingleCard = ({ id, apiUrl }) => {
         <CardContent sx={{ flex: 1 }}>
           <SingleTable data={data} loading={loading} expanded={expanded} selectedColumns={selectedColumns}></SingleTable>
         </CardContent>
-        <CardActions sx={{ justifyContent: 'flex-end' }}>
+        <CardActions sx={{ justifyContent: 'flex-start' }}>
           <Button size="small" onClick={handleExpandClick}>
             Expand
           </Button>
