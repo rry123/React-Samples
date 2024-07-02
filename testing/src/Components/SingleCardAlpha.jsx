@@ -43,7 +43,8 @@ const SingleCardAlpha = ({ id, apiUrl }) => {
           setData(url);
         } else {
           setResponseType('json');
-          setData(JSON.parse(Buffer.from(response.data).toString('utf-8')));
+          const text = new TextDecoder('utf-8').decode(new Uint8Array(response.data));
+          setData(JSON.parse(text));
         }
       } catch (error) {
         console.log(`Error fetching data for card ${id}: `, error.message);
