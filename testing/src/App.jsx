@@ -4,13 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Apnaapi from './Api/Apnaapi'
 import ArrangeCards from './Components/ArrangeCards'
+import ArrangeCardsAlpha from './Components/ArrangeCardsAlpha'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <ArrangeCards></ArrangeCards>
+      {/* <ArrangeCards></ArrangeCards> */}
+      <ArrangeCardsAlpha></ArrangeCardsAlpha>
     </>
   )
 }

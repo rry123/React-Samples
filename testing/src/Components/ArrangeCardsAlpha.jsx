@@ -10,10 +10,10 @@ const initialCards = [
   { id: 1, apiUrl: "http://localhost:3000/users" },
   { id: 2, apiUrl: "http://localhost:3001/todos" },
   { id: 3, apiUrl: "http://localhost:3002/cars" },
- // { id: 4, apiUrl: "http://localhost:3006/api/pdf"}
+  { id: 4, apiUrl: "http://localhost:3006/api/pdf"}
 ];
 
-function ArrangeCards() {
+function ArrangeCardsAlpha() {
   const [cards, setCards] = useState(initialCards);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -86,11 +86,11 @@ function ArrangeCards() {
       >
         {cards.map((card) => (
           // <SingleCard key={card.id} data={data[card.id] || []} loading={loading} apiUrl={card.apiUrl} />
-          <SingleCard key={card.id} id ={card.id} apiUrl={card.apiUrl} />
+          <SingleCardAlpha key={card.id} id ={card.id} apiUrl={card.apiUrl} />
         ))}
       </Box>
     </Box>
   );
 }
 
-export default ArrangeCards;
+export default ArrangeCardsAlpha;
